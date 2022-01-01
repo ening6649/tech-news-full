@@ -61,6 +61,11 @@ router.post('/', (req, res) => {
     password: req.body.password
   })
     .then(dbUserData => {
+      // give the server access to user's info and describes wether the user is logged in with a boolean
+      // req.session.save will initiate the create of the session and then
+      // ..run the callback function once complete 
+      // ensure the session is created before we send the response back
+      // ..by wrapping the variables in a callback
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
@@ -104,6 +109,7 @@ router.post('/login', (req, res) => {
   });
 });
 
+// destroying the session variables and resetting the cookie
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {

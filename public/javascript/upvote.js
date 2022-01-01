@@ -1,6 +1,6 @@
 async function upvoteClickHandler(event) {
   event.preventDefault();
-
+// split the url into an array based on / and grab the last item , which is the post_id
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];

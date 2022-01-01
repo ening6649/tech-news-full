@@ -22,6 +22,8 @@ async function loginFormHandler(event) {
   }
 }
 
+// async/await is syntactic sugar , only helps the code more readable
+// add async before function, add await before the promise which is fetch
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -30,6 +32,8 @@ async function signupFormHandler(event) {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (username && email && password) {
+    // when using await , we can assign the result of a promise to a variable
+    // ...so no need to use catch () or then() after the promise completes
     const response = await fetch('/api/users', {
       method: 'post',
       body: JSON.stringify({
@@ -39,7 +43,8 @@ async function signupFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' }
     });
-
+    // this is where .then would otherise appear
+    // add error handling by use the .ok property on the reponse object
     if (response.ok) {
       document.location.replace('/dashboard/');
     } else {

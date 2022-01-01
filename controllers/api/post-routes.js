@@ -92,7 +92,11 @@ router.post('/', withAuth, (req, res) => {
 
 router.put('/upvote', withAuth, (req, res) => {
   // custom static method created in models/Post.js
+  // if (req.session)  make sure the session exists first/ aka upvote will only work if 
+  // ..someone has logged in
+  // pass session id along with all destructured properties on req.body
   Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+  // using saved user_id property on the session to insert a new record in the vote table
     .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {
       console.log(err);
