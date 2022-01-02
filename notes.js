@@ -172,3 +172,5 @@ insert_description: (name) =>{
         descriptiveWords[Math.floor(math.random()*descriptiveWords.length)];
     return `${word} ${name}`;
 }
+
+// git push heroku to deploy! 
