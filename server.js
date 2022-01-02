@@ -21,9 +21,9 @@ const sess = {
 };
 
 app.use(session(sess));
-
+// helpers util implementation
 const helpers = require('./utils/helpers');
-
+// helpers util implementation
 const hbs = exphbs.create({ helpers });
 // template engine handlebar middle ware
 app.engine('handlebars', hbs.engine);

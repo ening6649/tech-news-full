@@ -4,6 +4,8 @@
     <span>({{format_url post_url}})</span>
   </div>
   <div class="meta">
+    {{!-- format_plural takes two arguement so write as the following with space as separation --}}
+    {{!-- example <span>({{format_date date timezone}})</span> --}}
     {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
     |
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>

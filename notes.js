@@ -146,4 +146,29 @@ app.use(session(sess));
   {{/each}}
 </div>
 
+// an example of a #if handlebars.js
+{{#if value}}
+<div>
+  This content will only display if "value" is truthy
+</div>
+{{/if}}
 
+// variables that are passed to view templates are automatically passed to the main layout
+
+// the following imports the partial post-info.handlebars
+// to use a partial, all we need is the > character, 
+// ..followed by the name of the partial file and the object we'll pass to the partial
+<ol class="post-list">
+  {{#each posts as |post|}}
+  <li>
+    {{> post-info post }}
+  </li>
+  {{/each}}
+</ol>
+
+// random word insert as helpers utils
+insert_description: (name) =>{
+    const word =
+        descriptiveWords[Math.floor(math.random()*descriptiveWords.length)];
+    return `${word} ${name}`;
+}
