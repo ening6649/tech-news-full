@@ -30,7 +30,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }))
 // the below makes the css style sheet avaiable to the client
 // makes everything in the public folder available 
 app.use(express.static(path.join(__dirname, 'public')));

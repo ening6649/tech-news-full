@@ -174,3 +174,12 @@ insert_description: (name) =>{
 }
 
 // git push heroku to deploy! 
+
+
+// node seeds/index.js
+
+// delete branch locally
+git branch -d localBranchName
+
+// delete branch remotely
+git push origin --delete remoteBranchName
